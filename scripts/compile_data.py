@@ -70,7 +70,7 @@ expletives = [
     ('felch','ɛ l'),
     ('filth','ɪ l'),
     ('fuck','ʌ'),
-    ('hump','ə'),
+    #('hump','ə'),
     ('jizz','ɪ'),
     ('knob','ɑ'),
     ('muff','ʌ'),
@@ -107,6 +107,8 @@ expletives = [
 # trochee counts for each expletive
 t_counts = {(e,vs):len(t_cands[vs]) for (e,vs) in expletives}
 print(t_counts)
+
+print([(k,v) for (k,v) in t_counts.items() if v < 50])
 
 # write data files
 with open('data/expletives.json','wt') as f:
