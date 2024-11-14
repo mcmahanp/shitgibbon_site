@@ -10,5 +10,5 @@ with open('data/t_cands.json', 'rt') as f:
 with open('templates/index.html','rt') as f:
     template = Template(f.read())
 
-with open('site/index.html','wt') as f:
+with open('index.html','wt') as f:
     f.write(template.render(t_cands = t_cands, expletives = expletives))
