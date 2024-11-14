@@ -31,7 +31,7 @@ initial_stressed_vowel_sound = fr"^#[^#]*ˈ({vre})\s"
 t_cands = defaultdict(set)
 for trochee in isleDict.search("",numSyllables=2,multiword='no',stressedSyllable='only',wordInitial='only',pos='nn'):
     t = trochee['word']
-    if t in nope:
+    if t in nope or len(t) < 4:
         continue
     # check part of speech
     pos = trochee['posList']
