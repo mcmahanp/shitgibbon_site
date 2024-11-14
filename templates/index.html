@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shit Gibbon</title>
+    <script>
+        let t_cands={{ t_cands }};
+        let expletives={{ expletives }};
+
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // Function to perform the main logic
+        function insertGibbon() {
+            // Choose a random element from the array 'expl'
+            let [ex, vs] = getRandomElement(expletives);
+
+            // Choose a random element from 't_cands[vs]'
+            let tr = getRandomElement(t_cands[vs]);
+
+            // Concatenate 'ex' and 'tr' with a space in between
+            let result = `${ex} ${tr}`;
+
+            // Insert the result into the DOM element with id 'sg'
+            document.getElementById('sg').textContent = result;
+        }
+
+        // Event listener for key presses
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                insertGibbon();
+            }
+        });
+        // Event listener clicks/taps
+        document.addEventListener('click', function(event) {
+                console.log("click");
+
+                insertGibbon();
+        });
+
+        // Call the function to update the DOM
+
+        window.onload = function() {
+            insertGibbon();
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');       
+        body {
+            display: grid;
+            grid-template: auto min-content / 100%;
+            width:98vw;
+            height:95vh;
+            font-family: "Jost", "Arial", sans-serif;
+        }
+        #shitgibbon {
+            margin: auto;
+            min-width: 30%;
+        }
+        #sg {
+            font-size:40pt;
+            font-weight:600;
+        }
+        .deemphasized {
+            color: #888888;
+            font-style: italic;
+            font-size: 10pt;
+        }
+
+        /* For phone screens */
+        @media (max-width: 600px) {
+            #shitgibbon {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="shitgibbon">
+    <div id="sg"></div>
+    <span class="deemphasized">Want another? Hit the spacebar or tap!<span>
+</div>
+<div class="footer deemphasized">
+    Inspired by Taylor Jones' 2017 blog post <a href="https://www.languagejones.com/blog-1/2017/2/9/linguists-have-been-discussing-shit-gibbon-i-argue-its-not-entirely-about-gibbons" target="_blank_">Linguists have been discussing "Shit Gibbon." I argue it's not entirely about gibbons."</a><br>I've done my best to remove slurs and racist/misogynist/ablist terms from the dictionaries, but if you encounter something I missed please <a href="https://github.com/mcmahanp/shitgibbon_site/issues">open an issue</a> so it can be removed.
+</a>
+</div>
+</body>
+</html>
+ 
